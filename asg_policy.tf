@@ -51,7 +51,10 @@ dimensions = {
   alarm_actions = [ "${aws_autoscaling_policy.web_policy_down.arn}" ]
 }
 
-
+# aws_autoscaling_policy declares how AWS should change Auto Scaling Group instances count in when aws_cloudwatch_metric_alarm trigger.
+# cooldown option will wait for 300 seconds before increasing Auto Scaling Group again.
+# aws_cloudwatch_metric_alarm is an alarm, which will be fired, if the total CPU utilization of all instances in our Auto Scaling Group will be the greater or equal threshold value which is 70% during 120 seconds.
+# aws_cloudwatch_metric_alarm is an alarm, which also will be fired, if the total CPU utilization of all instances in our Auto Scaling Group will be the lesser or equal threshold value which is 30% during 120 seconds.
 
 
 
